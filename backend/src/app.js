@@ -12,7 +12,7 @@ app.use(cookieParser())
 app.use(cors({
     origin: [
     "http://localhost:5173",
-    "https://db-todo-app.netlify.app"
+    "https://db-todo-list.netlify.app"
   ],
       credentials: true,
        methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
