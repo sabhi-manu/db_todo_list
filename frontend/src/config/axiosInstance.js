@@ -1,7 +1,7 @@
 import axios from "axios"
 
  export const axiosInstance = axios.create({
-    baseURL:"https://todo-backend-p777.onrender.com/api",
+    baseURL:"https://db-todo-list-et0j.onrender.com",
      withCredentials: true
 })
 
