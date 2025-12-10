@@ -5,13 +5,13 @@ import { addUser, removeUser } from "../user.slice"
 
 export const addUserAction =(data)=> async (dispatch)=>{
       try {
-        console.log(data)
+        console.log("register data ===>",data)
             let response = await axiosInstance.post("/user/register", data)
             console.log(response.data.message)
-            console.log(response.data.user)
+            console.log(response)
                if (response) {
             dispatch(addUser(response.data.user))
-             return response.data;
+             return response;
                }
         
       } catch (error) {
@@ -42,7 +42,7 @@ export const loginUserAction = (data)=>async (dispatch)=>{
 
 export const logoutUserAction = ()=>async(dispatch)=>{
   try {
-console.log("logout user action ==>")
+     console.log("logout user action ==>")
     let response = await axiosInstance.post("/user/logout")
       console.log(response)
     if(response.status== 200){

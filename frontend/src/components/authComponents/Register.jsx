@@ -2,16 +2,19 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux';
 import { addUserAction } from '../../features/actions/userAction';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 const Register = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = async (data) => {
     try {
-      let response = dispatch(addUserAction(data));
-      if (response) console.log(response);
+      let response =await dispatch(addUserAction(data));
+      if (response.status == 201|| 200){
+        navigate("/todo")
+      }
     } catch (error) {
       console.log("error in register form submit===>", error);
     }
