@@ -40,16 +40,14 @@ export const loginUserAction = (data)=>async (dispatch)=>{
   }
 }
 
-export const logoutUserAction = (data)=>async(dispatch)=>{
+export const logoutUserAction = ()=>async(dispatch)=>{
   try {
-
-    let response = await axiosInstance.post("/user/logout",data)
-
-      console.log(response.data.message)
-            console.log(response.data.user)
-
-    if(response){
-      dispatch(removeUser(data))
+console.log("logout user action ==>")
+    let response = await axiosInstance.post("/user/logout")
+      console.log(response)
+    if(response.status== 200){
+      dispatch(removeUser())
+      return response
     }
     
   } catch (error) {

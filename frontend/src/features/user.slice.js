@@ -20,7 +20,7 @@ let userSlice = createSlice({
             state.isError= null;
         },
         removeUser:(state,action)=>{
-              console.log(action)
+              console.log("logout slice action")
             state.user= null;
             state.isLoggedin= false;
             state.isError=null;

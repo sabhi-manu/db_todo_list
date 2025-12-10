@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useSelector } from "react-redux"
 import Input from "./Input"
 import List from "./List"
+import Header from "./Header"
 
 const Todo = () => {
   let { todoList } = useSelector(state => state.todo)
@@ -22,7 +23,11 @@ const Todo = () => {
   let changeStateEdit = () => setEdit(!edit)
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-4">
+   <div>
+    <div>
+      <Header/>
+    </div>
+     <div className="min-h-screen bg-gray-100 py-10 px-4">
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <h1 className="text-3xl font-bold text-center text-indigo-600 mb-6">
@@ -44,6 +49,7 @@ const Todo = () => {
         <List editFun={editFun} />
       </div>
     </div>
+   </div>
   )
 }
 
